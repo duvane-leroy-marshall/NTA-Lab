@@ -30,7 +30,6 @@ This lab covers the following:
 
 <p align="center">
 Locate Tcpdump: <br/>
-![1-Locate-Tcpdump](https://github.com/duvane-leroy-marshall/NTA-Lab/assets/59098370/cfa27094-4b6a-4566-a43d-ff4c7ee27722)
 
 <br />
 <br />
