@@ -14,8 +14,6 @@ This lab covers the following:
 - <b>Tcpdump fundamentals</b>
 - <b>Working with Wireshark</b>
 - <b>Wireshark filters</b>
-<br />
-
 
 <h2>Tools Used</h2>
 
