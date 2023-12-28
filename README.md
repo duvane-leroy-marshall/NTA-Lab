@@ -3,6 +3,8 @@ A HackTheBox Academy module focusing on analyzing network traffic for anomalies.
 
 <h1>Intro to Network Traffic Analysis</h1>
 
+[Module Link](https://academy.hackthebox.com/course/preview/intro-to-network-traffic-analysis)
+
 <h2>Description</h2>
 This lab introduces the concept of network traffic analysis by covering the principles of NTA and using traffic analysis tools such as Wireshark and tcpdump.
 
