@@ -23,6 +23,7 @@ This lab covers the following:
 <h2>Environments Used </h2>
 
 - <b>HackTheBox Pwnbox Linux</b>
+- <b>Windows 11</b>
 
 <h2>Using Tcpdump:</h2>
 
@@ -85,42 +86,44 @@ Wireshark Display Filter: <br/>
 <br />
 
 <h2>Guided Lab: Traffic Analysis Workflow using Wireshark</h2>
-In this guided lab scenario, one of our fellow admins noticed a weird connection from Bob's host IP = 172.16.10.90 when analyzing baseline captures. He asked us to check it out and see what is happening. 
+In this guided lab scenario, one of our fellow admins noticed a weird connection from Bob's host IP when analyzing baseline captures. He asked us to check it out and see what is happening. 
 <br />
 <br />
-We will be capturing traffic on <b>interface ens224</b> on a virtual machine by remoting into it using XfreeRDP.
+We will investigate a saved capture in Wireshark to find any anomalies.
 <br />
 <br />
 
 <p align="center">
 Using the Conversation plugin to see the different hosts using IPv4: <br/>
-<img src="https://i.imgur.com/LqDNa96.jpg" height="80%" width="80%" alt="Conversation Plugin"/>
+<img src="https://i.imgur.com/6mNztCV.jpg" height="80%" width="80%" alt="Conversation Plugin"/>
 <br />
 <b>As we can see from the conversation plugin, there are three conversations captured.</b>
 <br />
 <br />
 Using the Protocol Hierarchy plugin to look into the amount of traffic: <br/>
-<img src="https://i.imgur.com/qIlV90d.jpg" height="80%" width="80%" alt="Protocol Hierarchy Plugin"/>
+<img src="https://i.imgur.com/8PIT9Q3.jpg" height="80%" width="80%" alt="Protocol Hierarchy Plugin"/>
 <br />
 <b>According to the protocol hierarchy plugin, it is mostly TCP traffic in this capture. Since there is less UDP than TCP, we will be looking into UDP first.</b>
 <br />
 <br />
 Filtering out TCP to investigate anything unsual: <br/>
-<img src="https://i.imgur.com/7Vn25Iv.jpg" height="80%" width="80%" alt="TCP Filter"/>
+<img src="https://i.imgur.com/QiYG3Zj.jpg" height="80%" width="80%" alt="TCP Filter"/>
 <br />
 <b>Judging by our filter, there is nothing out of the ordinary. Next is setting a filter to display TCP traffic.</b>
 <br />
 <br />
 Filtering out UDP and ARP: <br/>
-<img src="https://i.imgur.com/GGiyuO9.jpg" height="80%" width="80%" alt="UDP ARP Filter"/>
+<img src="https://i.imgur.com/4BdbdYL.jpg" height="80%" width="80%" alt="UDP ARP Filter"/>
 <br />
-<b>We can see at packet 19 that the session was established via a three-way handshake.</b>
+<b>We can see at packet 3 that the session was established via a three-way handshake.</b>
 <br />
 <br />
 Looking at a TCP Stream to dig deeper: <br/>
-<img src="https://i.imgur.com/7Lh0PyI.jpg" height="80%" width="80%" alt="TCP Stream"/>
+<img src="https://i.imgur.com/esACySn.jpg" height="80%" width="80%" alt="TCP Stream-1"/>
 <br />
-<b>When we followed the TCP stream, we found something suspicious. It appears someone under is issuing commands like whoami, ipconfig, dir. More alarming is that someone made an account called hacker and assigned itself to the administrators group on the host.</b>
+<img src="https://i.imgur.com/lzu3lv7.jpg" height="80%" width="80%" alt="TCP Stream-2"/>
+<br />
+<b>When we followed the TCP stream, we found something suspicious. It appears someone is issuing commands like whoami, ipconfig, dir. More alarming is that someone made an account called hacker and assigned itself to the administrators group on the host.</b>
 <br />
 <br />
 
